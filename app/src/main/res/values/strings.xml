@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SMJewelsAdmin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_internet_message">Your Internet connection is too slow to reach our servers. Please try again.</string>
+    <string name="otp_message">A 6-digit Otp has been sent to your registered mobile number at </string>
+
+    <string name="dummy_ad_ID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_app_id">ca-app-pub-3178660510246244~1056938981</string>
+</resources>

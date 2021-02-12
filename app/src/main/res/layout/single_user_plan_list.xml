@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:id="@+id/singleUserListLayout">
+
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_width="64dp"
+    android:layout_height="64dp"
+    android:layout_gravity="center_vertical"
+    android:src="@drawable/ic_profile"
+    android:id="@+id/singleUserImagePlanList" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abhishek Das R"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/singleUserNamePlanList"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="1234567"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:id="@+id/singleUserIDPlanList"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="+91 7204974972"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="11sp"
+            android:id="@+id/singleUserPhonePlanList"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

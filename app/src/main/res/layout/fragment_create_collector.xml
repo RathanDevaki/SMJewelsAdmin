@@ -1,0 +1,99 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Create Collector"
+            android:textColor="@color/colorPrimary"
+            android:textSize="36sp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/ic_account_circle"
+            android:id="@+id/userPhotoCreateAccount"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to add photo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/collectorIdSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_grey_border"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="ID"
+            android:inputType="number"
+            android:padding="16dp"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/collectorNameSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_grey_border"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/collectorPhoneSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edittext_grey_border"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Phone Number"
+            android:textSize="14sp"
+            android:maxLength="10"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:textColor="@color/colorBlack" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Collector"
+            android:textAllCaps="false"
+            android:background="@drawable/button_rounded_corners_blue"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:id="@+id/signUpCollector"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
+
+
+    </LinearLayout>
+
+
+</layout>

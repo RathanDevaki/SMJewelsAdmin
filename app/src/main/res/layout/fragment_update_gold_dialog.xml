@@ -1,0 +1,65 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Gold Rate"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is the current gold that is being displayed to Plan B Users"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/current_gold_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="Rs.4399/g"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:id="@+id/gold_rate_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_grey_border"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Gold rate / gram"
+            android:inputType="numberDecimal"
+            android:padding="16dp"
+            android:textColor="@color/colorBlack" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:background="@drawable/button_rounded_corners_blue"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:id="@+id/update_gold_button"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+
+</layout>

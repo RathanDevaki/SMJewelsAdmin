@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Set"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This creates a new set in plan A"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+
+        <EditText
+            android:id="@+id/set_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_grey_border"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Set Name"
+            android:padding="16dp"
+            android:textColor="@color/colorBlack" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:textAllCaps="false"
+            android:background="@drawable/button_rounded_corners_blue"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:id="@+id/create_set_button"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+
+</layout>
