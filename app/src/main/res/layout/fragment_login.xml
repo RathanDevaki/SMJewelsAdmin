@@ -8,101 +8,104 @@
         android:layout_height="match_parent"
         android:background="#ffffff">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/loginSlider"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:corner_radius="8"
+                app:delay="0"
+                android:scaleType="fitXY"
+                app:auto_cycle="true"
+                app:period="1000"
+                android:layout_marginBottom="16dp"
+                app:placeholder="@drawable/smj1">
+
+            </com.denzcoskun.imageslider.ImageSlider>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_margin="36dp">
 
-
-                <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/loginSlider"
+                <ImageView
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:src="@drawable/logo"
+                    android:layout_gravity="center_horizontal" />
+                <EditText
+                    android:layout_gravity="center_horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    app:corner_radius="12"
-                    app:delay="0"
-                    app:auto_cycle="true"
-                    app:period="1000"
-                    android:layout_marginBottom="16dp"
-                    app:placeholder="@drawable/error">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:hint="User ID"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="14sp"
+                    android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                    android:drawablePadding="16dp"
+                    android:textColor="@color/colorBlack"
+                    android:id="@+id/user_id_et"/>
 
-                </com.denzcoskun.imageslider.ImageSlider>
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_rounded_corners_blue"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Get Otp"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textAllCaps="false"
+                    android:id="@+id/get_otp"
+                    android:visibility="visible"/>
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_margin="18dp"
+                    android:indeterminateDrawable="@drawable/circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:progress="60" />
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="36dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/logo"
-                        android:layout_gravity="center_horizontal" />
-
-                    <EditText
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:hint="Admin ID"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:textSize="14sp"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-                        android:drawablePadding="16dp"
-                        android:textColor="@color/colorBlack"
-                        android:id="@+id/user_id_et" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_rounded_corners_blue"
-                        android:layout_marginTop="16dp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Get Otp"
-                        android:textColor="@color/colorWhite"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:textAllCaps="false"
-                        android:id="@+id/get_otp" />
-
-                    <ProgressBar
-                        android:id="@+id/progress_bar"
-                        style="?android:attr/progressBarStyle"
-                        android:layout_margin="18dp"
-                        android:indeterminateDrawable="@drawable/circle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        tools:progress="60" />
-
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="24dp"
+                    android:visibility="visible">
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
 
             <com.google.android.gms.ads.AdView
+                android:visibility="gone"
                 android:id="@+id/loginAdBanner"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
                 app:adSize="BANNER"
-                app:adUnitId="@string/dummy_ad_ID"></com.google.android.gms.ads.AdView>
+                app:adUnitId="@string/dummy_ad_ID" />
 
 
-        </FrameLayout>
+        </LinearLayout>
 
-
-        <include
-            layout="@layout/otp_bottom_sheet"
-            android:id="@+id/bottom_sheet" />
+        <include layout="@layout/otp_bottom_sheet"
+            android:id="@+id/bottom_sheet"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

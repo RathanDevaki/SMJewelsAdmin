@@ -93,9 +93,7 @@ public class LoginFragment extends Fragment implements SplashContract.View {
         init();
         return mBinding.getRoot();
     }
-
     private void init() {
-
         //Initialize Ad Banner
         AdRequest adRequest = new AdRequest.Builder().build();
         mBinding.loginAdBanner.loadAd(adRequest);
@@ -108,7 +106,8 @@ public class LoginFragment extends Fragment implements SplashContract.View {
         mBinding.getOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(mBinding.userIdEt.getText()) || mBinding.userIdEt.getText().length() < 9) {
+
+                if (TextUtils.isEmpty(mBinding.userIdEt.getText())) {
                     mBinding.userIdEt.setError("Invalid ID");
                 } else {
                     getPhoneNumber(mBinding.userIdEt.getText().toString());
@@ -119,12 +118,14 @@ public class LoginFragment extends Fragment implements SplashContract.View {
         //Verify OTP Button
         mBinding.bottomSheet.verifyOtp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if (mBinding.bottomSheet.otpView.getText().toString().length() < 5)
+            public void onClick(View view)
+            {
+                if(TextUtils.isEmpty(mBinding.bottomSheet.otpView.getText()))
                 {
-                    Toast toasty=Toast.makeText(getContext(), "Enter OTP", Toast.LENGTH_LONG);
-                    toasty.setGravity(Gravity.CENTER, 0, 0);
-                    toasty.show();
+                    mBinding.bottomSheet.otpView.setError("Enter OTP");
+                }
+                else if (mBinding.bottomSheet.otpView.getText().toString().length() < 5) {
+                    Toast.makeText(getContext(), "Invalid OTP", Toast.LENGTH_SHORT).show();
                 } else {
                     verifyVerificationCode(mBinding.bottomSheet.otpView.getText().toString());
                 }
@@ -133,21 +134,43 @@ public class LoginFragment extends Fragment implements SplashContract.View {
 
         displayImageSlider();
 
+        //Create Account
+      /*  mBinding.createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationUtil.INSTANCE.toCreateAccount();
+            }
+        });*/
+
 
     }
+    public void progress_visiblity()
+    {
+        mBinding.progressBar.setVisibility(View.VISIBLE);
+        mBinding.getOtp.setVisibility(View.GONE);
 
+        // mBinding.createAccount.setVisibility(View.GONE);
+    }
+    public void progress_hidden()
+    {
+        mBinding.progressBar.setVisibility(View.GONE);
+        mBinding.getOtp.setVisibility(View.VISIBLE);
+
+        // mBinding.createAccount.setVisibility(View.VISIBLE);
+    }
     //To Load and display images into image slider
     private void displayImageSlider() {
         List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("https://images.freekaamaal.com/post_images/1569908385.png"));
-        slideModels.add(new SlideModel("https://images.freekaamaal.com/post_images/1569908385.png"));
-        slideModels.add(new SlideModel("https://images.freekaamaal.com/post_images/1569908385.png"));
-        slideModels.add(new SlideModel("https://images.freekaamaal.com/post_images/1569908385.png"));
+        slideModels.add(new SlideModel("https://smjewels.in/wp-content/uploads/2019/04/web-banner01.jpg"));
+        slideModels.add(new SlideModel("https://smjewels.in/wp-content/uploads/2019/04/web-banner02.jpg"));
+        slideModels.add(new SlideModel("https://smjewels.in/wp-content/uploads/2019/04/web-banner03.jpg"));
+        slideModels.add(new SlideModel("https://smjewels.in/wp-content/uploads/2019/04/g-5.jpg"));
+        slideModels.add(new SlideModel("https://smjewels.in/wp-content/uploads/2019/04/g-3.jpg"));
         mBinding.loginSlider.setImageList(slideModels, true);
     }
 
     public void getPhoneNumber(final String userID) {
-        mBinding.progressBar.setVisibility(View.VISIBLE);
+        progress_visiblity();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference().child("AdminInfo");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -157,12 +180,12 @@ public class LoginFragment extends Fragment implements SplashContract.View {
                     phoneNumber = snapshot.child(userID).child("Phone").getValue(String.class);
                     //Toast.makeText(context,"Phone Number=>"+phoneNumber,Toast.LENGTH_LONG).show();
                     Name = snapshot.child(userID).child("Name").getValue(String.class);
-                    Toasty.info(getContext(),"Hellow"+Name+" An OTP will be sent to your number",Toasty.LENGTH_SHORT).show();
+                    Toasty.success(getContext(),"Hello "+Name+" \nAn OTP will be sent to your number",Toasty.LENGTH_SHORT).show();
                     //userUniqueID = snapshot.child(userID).child("UserID").getValue(String.class);
                     sendOtp(phoneNumber); // Sending OTP to the number
                 } else {
                     Toasty.error(getContext(), "Admin Does not exist. Please Register", Toast.LENGTH_SHORT).show();
-                    mBinding.progressBar.setVisibility(View.GONE);
+                    progress_hidden();
                 }
             }
 
@@ -220,6 +243,8 @@ public class LoginFragment extends Fragment implements SplashContract.View {
 
     private void verifyVerificationCode(String code) {
         //creating the credential
+        mBinding.bottomSheet.progressBarOtp.setVisibility(View.VISIBLE);
+        mBinding.bottomSheet.verifyOtp.setVisibility(View.GONE);
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
         //signing the user
         signInWithPhoneAuthCredential(credential);
@@ -234,24 +259,28 @@ public class LoginFragment extends Fragment implements SplashContract.View {
                 try {
                     if (task.isSuccessful()) {
                         //Code to set user session
-                        saveUserID(); //Saves user ID and plan Name in shared preferences
+                        saveUserID();
+                        //Saves user ID and plan Name in shared preferences
                         NavigationUtil.INSTANCE.toMainActivity();
-                    } else {
 
+                    }
+                    else
+                    {
                         String message = "Somthing is wrong, we will fix it soon...";
-                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
 
-                            // message = "Incorrect OTP";
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException)
+                        {
+                            message = "Incorrect OTP";
+                            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
 
-                            Toast toasty=Toast.makeText(getContext(), "Incorrect OTP", Toast.LENGTH_LONG);
-                            toasty.setGravity(Gravity.CENTER, 0, 0);
-                            toasty.show();
-
+                            mBinding.bottomSheet.progressBarOtp.setVisibility(View.GONE);
+                            mBinding.bottomSheet.verifyOtp.setVisibility(View.VISIBLE);
                         }
                     }
                 } catch (Exception e) {
                     Log.v("TAG", "OTP Exception" + e);
-                    Toast.makeText(getContext(),"Enter OTP",Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(), "Incorrect OTP", Toast.LENGTH_LONG).show();
+
                 }
             }
         });

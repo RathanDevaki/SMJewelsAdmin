@@ -84,8 +84,8 @@ public enum NavigationUtil {
 
     /*public void toCreateAccount() {
         addFragment(new CreateAccountFragment(),CreateAccountFragment.class.getSimpleName(),true);
-    }
-*/
+    }*/
+
     public void toMainActivity(){
         Intent i = new Intent(getActivity(), MainActivity.class);
         getActivity().startActivity(i);

@@ -110,7 +110,7 @@ public class UserProfileFragment extends Fragment implements MainActivityContrac
                         mBinding.progressPercentage.setText(String.valueOf(_completedPercentage) + "% Completed");
                         mBinding.planProgress.setProgress(_completedPercentage);
 
-                        mBinding.lastLoginDashboard.setText("Last login on "+snapshot.child("LastLogin").getValue(String.class));
+
                         mBinding.progressPercentageMonths.setText(String.valueOf(completedMonths) + "/" + String.valueOf(totalMonths) + " Months");
                     }
 

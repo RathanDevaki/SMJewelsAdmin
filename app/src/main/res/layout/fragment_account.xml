@@ -77,11 +77,8 @@
                     android:layout_marginBottom="16dp"
                     android:layout_weight="1"
                     android:background="@color/black" />
-
-
+                
             </LinearLayout>
-
-
             <LinearLayout
                 android:id="@+id/add_admin"
                 android:layout_width="match_parent"
@@ -92,11 +89,12 @@
                 android:layout_marginEnd="16dp">
 
                 <TextView
+                    android:visibility="visible"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Add Admin"
+                    android:text="Add Draw Winners"
                     android:textSize="14sp"
                     android:textColor="@color/black"/>
 
