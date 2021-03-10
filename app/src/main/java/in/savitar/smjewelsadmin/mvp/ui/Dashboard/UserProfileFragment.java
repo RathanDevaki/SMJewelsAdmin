@@ -114,9 +114,6 @@ public class UserProfileFragment extends Fragment implements MainActivityContrac
                         mBinding.progressPercentageMonths.setText(String.valueOf(completedMonths) + "/" + String.valueOf(totalMonths) + " Months");
                     }
 
-
-
-
                 }
 
                 @Override

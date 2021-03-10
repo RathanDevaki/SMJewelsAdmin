@@ -130,12 +130,12 @@ public class AccountFragment extends Fragment  implements MainActivityContract.V
     private void clearMonthly() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Are you sure");
-        builder.setMessage("You want to clear weekly earnings record?");
+        builder.setMessage("You want to clear monthly earnings record?");
         builder.setPositiveButton("Clear", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference databaseReference = firebaseDatabase.getReference().child("WeeklyEarnings");
+                DatabaseReference databaseReference = firebaseDatabase.getReference().child("MonthlyEarnings");
                 databaseReference.setValue(0);
                 Toasty.success(getContext(),"Monthly Record has been reset").show();
             }
@@ -186,7 +186,7 @@ public class AccountFragment extends Fragment  implements MainActivityContract.V
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference databaseReference = firebaseDatabase.getReference().child("MonthlyEarnings");
+                DatabaseReference databaseReference = firebaseDatabase.getReference().child("DailyEarnings");
                 databaseReference.setValue(0);
                 Toasty.success(getContext(),"Daily Record has been reset").show();
             }
