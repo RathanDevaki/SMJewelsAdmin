@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import java.lang.ref.WeakReference;
 
 import in.savitar.smjewelsadmin.databinding.ActivityMainBinding;
+import in.savitar.smjewelsadmin.mvp.ui.Collectors.AssignCustomersFragment;
 import in.savitar.smjewelsadmin.mvp.ui.Collectors.ScanCollectorFragment;
 import in.savitar.smjewelsadmin.mvp.ui.Dashboard.CreateUserFragment;
 import in.savitar.smjewelsadmin.mvp.ui.Dashboard.HomeFragment;
@@ -71,7 +72,7 @@ public enum NavigationUtilMain {
     }
 
     public void setUpHomeScreen() {
-        addFragment(new HomeFragment(), HomeFragment.class.getSimpleName(),false);
+        addFragment(new HomeFragment(), HomeFragment.class.getSimpleName(),true);
     }
 
     public void toPlanUserFragment()
@@ -80,11 +81,11 @@ public enum NavigationUtilMain {
     }
 
     public void toScanFragment(){
-        addFragment(new ScanFragment(),ScanFragment.class.getSimpleName(),false);
+        addFragment(new ScanFragment(),ScanFragment.class.getSimpleName(),true);
     }
 
     public void toCollectorsScanFragment(){
-        addFragment(new ScanCollectorFragment(),ScanCollectorFragment.class.getSimpleName(),false);
+        addFragment(new ScanCollectorFragment(),ScanCollectorFragment.class.getSimpleName(),true);
     }
 
     public void toUserCard() {
@@ -92,15 +93,15 @@ public enum NavigationUtilMain {
     }
 
     public void toCreateUser() {
-        addFragment(new CreateUserFragment(),CreateUserFragment.class.getSimpleName(),false);
+        addFragment(new CreateUserFragment(),CreateUserFragment.class.getSimpleName(),true);
     }
 
+    public void toAssignCustomers() {
+        addFragment(new AssignCustomersFragment(),AssignCustomersFragment.class.getSimpleName(),true);
+    }
     public void toSetFragment(){
         addFragment(new PlanASetFragment(),PlanASetFragment.class.getSimpleName(),true);
     }
-
-
-
 
 
 }

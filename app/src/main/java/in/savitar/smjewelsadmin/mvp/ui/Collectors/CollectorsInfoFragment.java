@@ -20,12 +20,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.fragment.app.FragmentTransaction;
 import in.savitar.smjewelsadmin.Adapters.TransactionsAdapter;
 import in.savitar.smjewelsadmin.ModalClasses.TransactionsModal;
 import in.savitar.smjewelsadmin.R;
 import in.savitar.smjewelsadmin.databinding.FragmentCollectorsInfoBinding;
+import in.savitar.smjewelsadmin.mvp.ui.Account.AddAdminFragment;
 import in.savitar.smjewelsadmin.mvp.ui.Dashboard.MainActivityContract;
 import in.savitar.smjewelsadmin.mvp.ui.Dashboard.MainActivityPresenter;
+import in.savitar.smjewelsadmin.mvp.utils.NavigationUtil;
+import in.savitar.smjewelsadmin.mvp.utils.NavigationUtilMain;
 
 
 public class CollectorsInfoFragment extends Fragment implements MainActivityContract.View{
@@ -63,7 +67,12 @@ public class CollectorsInfoFragment extends Fragment implements MainActivityCont
 
         mBinding.collectorName.setText(getArguments().getString("Name"));
         mBinding.collectorID.setText(getArguments().getString("ID"));
-
+        mBinding.asignUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               NavigationUtilMain.INSTANCE.toAssignCustomers();
+            }
+        });
         final List<TransactionsModal> list = new ArrayList<>();
         final TransactionsAdapter adapter = new TransactionsAdapter(getContext(), R.layout.single_transaction_list, list);
         mBinding.collectionsListView.setAdapter(adapter);
@@ -94,7 +103,9 @@ public class CollectorsInfoFragment extends Fragment implements MainActivityCont
                     }
                 });
 
+
     }
+
 
     @Override
     public void onSuccess() {

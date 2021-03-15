@@ -21,6 +21,7 @@
                 android:src="@drawable/ic_profile"
                 android:id="@+id/collectorsPhoto"/>
 
+
             <TextView
                 android:id="@+id/collectorName"
                 android:layout_width="wrap_content"
@@ -42,6 +43,21 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/montserrat_medium"
                 android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/asign_users"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_rounded_corners_blue"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="16dp"
+                android:text="Assign Customes"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:visibility="visible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
