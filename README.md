@@ -1,1 +1,1 @@
-Admin Project for SM Jewels store
+Admin Project for SM Jewels store.
